@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>香腸愛好者性格測驗</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+        .container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .question {
+            margin-bottom: 20px;
+        }
+        .choices button {
+            margin: 5px;
+        }
+        .image-container img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>香腸愛好者性格測驗</h1>
+        <div id="test">
+            <!-- Questions will be inserted here -->
+        </div>
+        <button id="next" onclick="nextQuestion()">下一題</button>
+    </div>
+
+    <script>
+        const questions = [
+            {
+                question: "你喜歡長時間躺著嗎？",
+                choices: ["喜歡", "不喜歡"],
+                category: "L", // Lazy
+                image: "data:image/png;base64,... (插入第一張圖片的base64編碼)"
+            },
+            {
+                question: "你會偶爾翻身換個姿勢嗎？",
+                choices: ["會", "不會"],
+                category: "M", // Move
+                image: "data:image/png;base64,... (插入第二張圖片的base64編碼)"
+            },
+            {
+                question: "你喜歡高脂肪含量的食物嗎？",
+                choices: ["喜歡", "不喜歡"],
+                category: "F", // Fat
+                image: "data:image/png;base64,... (插入第三張圖片的base64編碼)"
+            },
+            // 可以根據需要添加更多問題和圖片
+        ];
+
+        let currentQuestion = 0;
+        let scores = { L: 0, M: 0, F: 0 };
+
+        function renderQuestion() {
+            if (currentQuestion >= questions.length) {
+                showResult();
+                return;
+            }
+
+            const question = questions[currentQuestion];
+            document.getElementById('test').innerHTML = `
+                <div class="image-container"><img src="${question.image}" alt="Sausage Image"></div>
+                <div class="question">${question.question}</div>
+                <div class="choices">
+                    ${question.choices.map((choice, index) => `<button onclick="answer(${index})">${choice}</button>`).join('')}
+                </div>
+            `;
+        }
+
+        function answer(choiceIndex) {
+            const question = questions[currentQuestion];
+            if (choiceIndex === 0) {
+                scores[question.category]++;
+            } else {
+                scores[question.category]--;
+            }
+
+            currentQuestion++;
+            renderQuestion();
+        }
+
+        function showResult() {
+            let personality = "你是一個";
+
+            if (scores.L > 0) personality += "長期躺著";
+            if (scores.M > 0) personality += "，偶爾翻身";
+            if (scores.F > 0) personality += "，喜歡高脂肪食物";
+            if (scores.L <= 0 && scores.M <= 0 && scores.F <= 0) personality += "一般人";
+
+            document.getElementById('test').innerHTML = `<h2>${personality}。</h2>`;
+            document.getElementById('next').style.display = 'none';
+        }
+
+        function nextQuestion() {
+            renderQuestion();
+        }
+
+        // 開始測驗
+        renderQuestion();
+    </script>
+</body>
+</html>
