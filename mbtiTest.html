@@ -33,7 +33,7 @@
             font-size: 16px;
         }
         .image-container img {
-            max-width: 100%;
+            max-width: 50%; /* 縮小圖片的最大寬度為容器寬度的50% */
             height: auto;
             border-radius: 8px;
             margin-bottom: 20px;
@@ -64,84 +64,39 @@
     <script>
         const questions = [
             {
-                question: "你喜歡制定詳細的計劃嗎？",
+                question: "你喜歡長時間躺著嗎？",
                 choices: ["喜歡", "不喜歡"],
-                category: "J" // Judging (反應態度)
+                category: "I" // Introversion (產生能量的方式)
             },
             {
-                question: "你喜歡解決複雜的問題和挑戰嗎？",
-                choices: ["喜歡", "不喜歡"],
-                category: "N" // Intuition (思維模式)
-            },
-            {
-                question: "你喜歡擔任領導角色並制定規則嗎？",
-                choices: ["喜歡", "不喜歡"],
-                category: "J" // Judging (反應態度)
-            },
-            {
-                question: "你喜歡與人辯論並挑戰他們的觀點嗎？",
-                choices: ["喜歡", "不喜歡"],
-                category: "T" // Thinking (做決策的依據)
-            },
-            {
-                question: "你認為自己是一個富有同情心並且願意幫助他人的人嗎？",
-                choices: ["是", "否"],
-                category: "F" // Feeling (做決策的依據)
-            },
-            {
-                question: "你喜歡幻想和沉浸在自己的世界裡嗎？",
-                choices: ["喜歡", "不喜歡"],
-                category: "N" // Intuition (思維模式)
-            },
-            {
-                question: "你喜歡激勵和影響他人嗎？",
-                choices: ["喜歡", "不喜歡"],
-                category: "E" // Extraversion (產生能量的方式)
-            },
-            {
-                question: "你認為自己是一個充滿熱情和創意的人嗎？",
-                choices: ["是", "否"],
-                category: "N" // Intuition (思維模式)
-            },
-            {
-                question: "你認為自己是一個注重細節並且有條理的人嗎？",
-                choices: ["是", "否"],
-                category: "S" // Sensing (思維模式)
-            },
-            {
-                question: "你喜歡幫助他人並提供支持嗎？",
-                choices: ["喜歡", "不喜歡"],
-                category: "F" // Feeling (做決策的依據)
-            },
-            {
-                question: "你喜歡負責並管理他人嗎？",
-                choices: ["喜歡", "不喜歡"],
-                category: "J" // Judging (反應態度)
-            },
-            {
-                question: "你喜歡與他人互動並建立社交關係嗎？",
-                choices: ["喜歡", "不喜歡"],
-                category: "E" // Extraversion (產生能量的方式)
-            },
-            {
-                question: "你喜歡實踐和動手操作嗎？",
-                choices: ["喜歡", "不喜歡"],
-                category: "S" // Sensing (思維模式)
-            },
-            {
-                question: "你認為自己是一個熱愛藝術和自由的人嗎？",
-                choices: ["是", "否"],
-                category: "N" // Intuition (思維模式)
-            },
-            {
-                question: "你喜歡冒險並接受挑戰嗎？",
-                choices: ["喜歡", "不喜歡"],
+                question: "你會偶爾翻身換個姿勢嗎？",
+                choices: ["會", "不會"],
                 category: "P" // Perceiving (反應態度)
             },
             {
-                question: "你認為自己是一個外向並充滿熱情的人嗎？",
+                question: "你喜歡高脂肪含量的食物嗎？",
+                choices: ["喜歡", "不喜歡"],
+                category: "S" // Sensing (思維模式)
+            },
+            {
+                question: "你在壓力大的時候會爆發嗎？",
+                choices: ["會", "不會"],
+                category: "T" // Thinking (做決策的依據)
+            },
+            {
+                question: "你認為自己不太健康嗎？",
                 choices: ["是", "否"],
-                category: "E" // Extraversion (產生能量的方式)
+                category: "F" // Feeling (做決策的依據)
+            },
+            {
+                question: "你喜歡便宜廉價的東西嗎？",
+                choices: ["喜歡", "不喜歡"],
+                category: "S" // Sensing (思維模式)
+            },
+            {
+                question: "你認為複雜的成分會讓食物更美味嗎？",
+                choices: ["是", "否"],
+                category: "N" // Intuition (思維模式)
             }
         ];
 
@@ -225,9 +180,7 @@
             document.getElementById('test').innerHTML = `
                 <div class="question">${question.question}</div>
                 <div class="choices">
-                    ${question.choices.map((choice, index) =>
-
- `<button onclick="answer(${index})">${choice}</button>`).join('')}
+                    ${question.choices.map((choice, index) => `<button onclick="answer(${index})">${choice}</button>`).join('')}
                 </div>
             `;
             document.getElementById('prev').style.display = currentQuestion > 0 ? 'inline-block' : 'none';
