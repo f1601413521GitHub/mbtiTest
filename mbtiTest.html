@@ -20,22 +20,34 @@
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 90%;
+            width: 600px;
+            box-sizing: border-box;
         }
         .question {
             margin-bottom: 20px;
         }
         .choices button {
             margin: 5px;
+            padding: 10px 20px;
+            font-size: 16px;
         }
         .image-container img {
-            max-width: 50%; /* 縮小圖片的最大寬度為容器寬度的50% */
+            max-width: 100%;
             height: auto;
             border-radius: 8px;
             margin-bottom: 20px;
         }
+        .navigation {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+        .navigation button {
+            padding: 10px 20px;
+            font-size: 16px;
+        }
     </style>
-    
-    
 </head>
 <body>
     <div class="container">
@@ -43,7 +55,10 @@
         <div id="test">
             <!-- Questions will be inserted here -->
         </div>
-        <button id="next" onclick="nextQuestion()">下一題</button>
+        <div class="navigation">
+            <button id="prev" onclick="prevQuestion()">上一題</button>
+            <button id="next" onclick="nextQuestion()">下一題</button>
+        </div>
     </div>
 
     <script>
@@ -210,9 +225,12 @@
             document.getElementById('test').innerHTML = `
                 <div class="question">${question.question}</div>
                 <div class="choices">
-                    ${question.choices.map((choice, index) => `<button onclick="answer(${index})">${choice}</button>`).join('')}
+                    ${question.choices.map((choice, index) =>
+
+ `<button onclick="answer(${index})">${choice}</button>`).join('')}
                 </div>
             `;
+            document.getElementById('prev').style.display = currentQuestion > 0 ? 'inline-block' : 'none';
         }
 
         function answer(choiceIndex) {
@@ -228,14 +246,19 @@
             renderQuestion();
         }
 
+        function prevQuestion() {
+            if (currentQuestion > 0) {
+                currentQuestion--;
+                renderQuestion();
+            }
+        }
+
         function getOppositeCategory(category) {
             switch (category) {
                 case 'E': return 'I';
                 case 'I': return 'E';
                 case 'S': return 'N';
-               
-
- case 'N': return 'S';
+                case 'N': return 'S';
                 case 'T': return 'F';
                 case 'F': return 'T';
                 case 'J': return 'P';
@@ -253,6 +276,7 @@
             document.getElementById('test').innerHTML = `<h2>你的 MBTI 類型是：${mbti}</h2>
                                                          <p>${result.description}</p>
                                                          <div class="image-container"><img src="${result.image}" alt="${mbti} Image"></div>`;
+            document.getElementById('prev').style.display = 'none';
             document.getElementById('next').style.display = 'none';
         }
 
