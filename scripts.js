@@ -39,67 +39,67 @@ const questions = [
 const results = {
     "INTJ": {
         description: "你是一個戰略家，有遠見，目標導向",
-        image: "images/01_INTJ.webp"
+        image: "images/01_INTJ.jpg"
     },
     "INTP": {
         description: "你是一個創新者，分析型，追求知識",
-        image: "images/02_INTP.webp"
+        image: "images/02_INTP.jpg"
     },
     "ENTJ": {
         description: "你是一個領導者，自信，果斷",
-        image: "images/03_ENTJ.webp"
+        image: "images/03_ENTJ.jpg"
     },
     "ENTP": {
         description: "你是一個辯論者，富有創意，愛挑戰",
-        image: "images/04_ENTP.webp"
+        image: "images/04_ENTP.jpg"
     },
     "INFJ": {
         description: "你是一個理想主義者，富有同情心，決心強",
-        image: "images/05_INFJ.webp"
+        image: "images/05_INFJ.jpg"
     },
     "INFP": {
         description: "你是一個調解者，富有理想，追求和諧",
-        image: "images/06_INFP.webp"
+        image: "images/06_INFP.jpg"
     },
     "ENFJ": {
         description: "你是一個社會活動家，有魅力，激勵他人",
-        image: "images/07_ENFJ.webp"
+        image: "images/07_ENFJ.jpg"
     },
     "ENFP": {
         description: "你是一個熱情者，富有創意，追求自由",
-        image: "images/08_ENFP.webp"
+        image: "images/08_ENFP.jpg"
     },
     "ISTJ": {
         description: "你是一個務實者，有責任心，細心",
-        image: "images/09_ISTJ.webp"
+        image: "images/09_ISTJ.jpg"
     },
     "ISFJ": {
         description: "你是一個保護者，可靠，有耐心",
-        image: "images/10_ISFJ.webp"
+        image: "images/10_ISFJ.jpg"
     },
     "ESTJ": {
         description: "你是一個管理者，有組織能力，果斷",
-        image: "images/11_ESTJ.webp"
+        image: "images/11_ESTJ.jpg"
     },
     "ESFJ": {
         description: "你是一個關懷者，樂於助人，外向",
-        image: "images/12_ESFJ.webp"
+        image: "images/12_ESFJ.jpg"
     },
     "ISTP": {
         description: "你是一個工匠，靈活，實用",
-        image: "images/13_ISTP.webp"
+        image: "images/13_ISTP.jpg"
     },
     "ISFP": {
         description: "你是一個冒險家，自由奔放，藝術感",
-        image: "images/14_ISFP.webp"
+        image: "images/14_ISFP.jpg"
     },
     "ESTP": {
         description: "你是一個企業家，自信，愛冒險",
-        image: "images/15_ESTP.webp"
+        image: "images/15_ESTP.jpg"
     },
     "ESFP": {
         description: "你是一個表演者，外向，熱情",
-        image: "images/16_ESFP.webp"
+        image: "images/16_ESFP.jpg"
     }
 };
 
