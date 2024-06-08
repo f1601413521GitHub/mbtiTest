@@ -49,100 +49,103 @@
             {
                 question: "你喜歡制定詳細的計劃嗎？",
                 choices: ["喜歡", "不喜歡"],
-                category: "J", // Judging (反應態度)
-                image: "images/01_INTJ.webp"
+                category: "J" // Judging (反應態度)
             },
             {
                 question: "你喜歡解決複雜的問題和挑戰嗎？",
                 choices: ["喜歡", "不喜歡"],
-                category: "N", // Intuition (思維模式)
-                image: "images/02_INTP.webp"
+                category: "N" // Intuition (思維模式)
             },
             {
                 question: "你喜歡擔任領導角色並制定規則嗎？",
                 choices: ["喜歡", "不喜歡"],
-                category: "J", // Judging (反應態度)
-                image: "images/03_ENTJ.webp"
+                category: "J" // Judging (反應態度)
             },
             {
                 question: "你喜歡與人辯論並挑戰他們的觀點嗎？",
                 choices: ["喜歡", "不喜歡"],
-                category: "T", // Thinking (做決策的依據)
-                image: "images/04_ENTP.webp"
+                category: "T" // Thinking (做決策的依據)
             },
             {
                 question: "你認為自己是一個富有同情心並且願意幫助他人的人嗎？",
                 choices: ["是", "否"],
-                category: "F", // Feeling (做決策的依據)
-                image: "images/05_INFJ.webp"
+                category: "F" // Feeling (做決策的依據)
             },
             {
                 question: "你喜歡幻想和沉浸在自己的世界裡嗎？",
                 choices: ["喜歡", "不喜歡"],
-                category: "N", // Intuition (思維模式)
-                image: "images/06_INFP.webp"
+                category: "N" // Intuition (思維模式)
             },
             {
                 question: "你喜歡激勵和影響他人嗎？",
                 choices: ["喜歡", "不喜歡"],
-                category: "E", // Extraversion (產生能量的方式)
-                image: "images/07_ENFJ.webp"
+                category: "E" // Extraversion (產生能量的方式)
             },
             {
                 question: "你認為自己是一個充滿熱情和創意的人嗎？",
                 choices: ["是", "否"],
-                category: "N", // Intuition (思維模式)
-                image: "images/08_ENFP.webp"
+                category: "N" // Intuition (思維模式)
             },
             {
                 question: "你認為自己是一個注重細節並且有條理的人嗎？",
                 choices: ["是", "否"],
-                category: "S", // Sensing (思維模式)
-                image: "images/09_ISTJ.webp"
+                category: "S" // Sensing (思維模式)
             },
             {
                 question: "你喜歡幫助他人並提供支持嗎？",
                 choices: ["喜歡", "不喜歡"],
-                category: "F", // Feeling (做決策的依據)
-                image: "images/10_ISFJ.webp"
+                category: "F" // Feeling (做決策的依據)
             },
             {
                 question: "你喜歡負責並管理他人嗎？",
                 choices: ["喜歡", "不喜歡"],
-                category: "J", // Judging (反應態度)
-                image: "images/11_ESTJ.webp"
+                category: "J" // Judging (反應態度)
             },
             {
                 question: "你喜歡與他人互動並建立社交關係嗎？",
                 choices: ["喜歡", "不喜歡"],
-                category: "E", // Extraversion (產生能量的方式)
-                image: "images/12_ESFJ.webp"
+                category: "E" // Extraversion (產生能量的方式)
             },
             {
                 question: "你喜歡實踐和動手操作嗎？",
                 choices: ["喜歡", "不喜歡"],
-                category: "S", // Sensing (思維模式)
-                image: "images/13_ISTP.webp"
+                category: "S" // Sensing (思維模式)
             },
             {
                 question: "你認為自己是一個熱愛藝術和自由的人嗎？",
                 choices: ["是", "否"],
-                category: "N", // Intuition (思維模式)
-                image: "images/14_ISFP.webp"
+                category: "N" // Intuition (思維模式)
             },
             {
                 question: "你喜歡冒險並接受挑戰嗎？",
                 choices: ["喜歡", "不喜歡"],
-                category: "P", // Perceiving (反應態度)
-                image: "images/15_ESTP.webp"
+                category: "P" // Perceiving (反應態度)
             },
             {
                 question: "你認為自己是一個外向並充滿熱情的人嗎？",
                 choices: ["是", "否"],
-                category: "E", // Extraversion (產生能量的方式)
-                image: "images/16_ESFP.webp"
+                category: "E" // Extraversion (產生能量的方式)
             }
         ];
+
+        const images = {
+            "INTJ": "images/01_INTJ.webp",
+            "INTP": "images/02_INTP.webp",
+            "ENTJ": "images/03_ENTJ.webp",
+            "ENTP": "images/04_ENTP.webp",
+            "INFJ": "images/05_INFJ.webp",
+            "INFP": "images/06_INFP.webp",
+            "ENFJ": "images/07_ENFJ.webp",
+            "ENFP": "images/08_ENFP.webp",
+            "ISTJ": "images/09_ISTJ.webp",
+            "ISFJ": "images/10_ISFJ.webp",
+            "ESTJ": "images/11_ESTJ.webp",
+            "ESFJ": "images/12_ESFJ.webp",
+            "ISTP": "images/13_ISTP.webp",
+            "ISFP": "images/14_ISFP.webp",
+            "ESTP": "images/15_ESTP.webp",
+            "ESFP": "images/16_ESFP.webp"
+        };
 
         let currentQuestion = 0;
         let scores = { E: 0, I: 0, S: 0, N: 0, T: 0, F: 0, J: 0, P: 0 };
@@ -155,7 +158,6 @@
 
             const question = questions[currentQuestion];
             document.getElementById('test').innerHTML = `
-                <div class="image-container"><img src="${question.image}" alt="Sausage Image"></div>
                 <div class="question">${question.question}</div>
                 <div class="choices">
                     ${question.choices.map((choice, index) => `<button onclick="answer(${index})">${choice}</button>`).join('')}
@@ -195,7 +197,9 @@
                          (scores.T > scores.F ? 'T' : 'F') +
                          (scores.J > scores.P ? 'J' : 'P');
             
-            document.getElementById('test').innerHTML = `<h2>你的 MBTI 類型是：${mbti}</h2>`;
+            const imageUrl = images[mbti];
+            document.getElementById('test').innerHTML = `<h2>你的 MBTI 類型是：${mbti}</h2>
+                                                         <div class="image-container"><img src="${imageUrl}" alt="${mbti} Image"></div>`;
             document.getElementById('next').style.display = 'none';
         }
 
