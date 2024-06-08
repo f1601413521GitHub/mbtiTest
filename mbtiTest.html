@@ -47,28 +47,105 @@
     <script>
         const questions = [
             {
-                question: "你喜歡長時間躺著嗎？",
+                question: "你喜歡制定詳細的計劃嗎？",
                 choices: ["喜歡", "不喜歡"],
-                category: "L", // Lazy
-                image: "data:image/png;base64,... (插入第一張圖片的base64編碼)"
+                category: "J", // Judging (反應態度)
+                image: "images/01_INTJ.webp"
             },
             {
-                question: "你會偶爾翻身換個姿勢嗎？",
-                choices: ["會", "不會"],
-                category: "M", // Move
-                image: "data:image/png;base64,... (插入第二張圖片的base64編碼)"
+                question: "你喜歡解決複雜的問題和挑戰嗎？",
+                choices: ["喜歡", "不喜歡"],
+                category: "N", // Intuition (思維模式)
+                image: "images/02_INTP.webp"
             },
             {
-                question: "你喜歡高脂肪含量的食物嗎？",
+                question: "你喜歡擔任領導角色並制定規則嗎？",
                 choices: ["喜歡", "不喜歡"],
-                category: "F", // Fat
-                image: "data:image/png;base64,... (插入第三張圖片的base64編碼)"
+                category: "J", // Judging (反應態度)
+                image: "images/03_ENTJ.webp"
             },
-            // 可以根據需要添加更多問題和圖片
+            {
+                question: "你喜歡與人辯論並挑戰他們的觀點嗎？",
+                choices: ["喜歡", "不喜歡"],
+                category: "T", // Thinking (做決策的依據)
+                image: "images/04_ENTP.webp"
+            },
+            {
+                question: "你認為自己是一個富有同情心並且願意幫助他人的人嗎？",
+                choices: ["是", "否"],
+                category: "F", // Feeling (做決策的依據)
+                image: "images/05_INFJ.webp"
+            },
+            {
+                question: "你喜歡幻想和沉浸在自己的世界裡嗎？",
+                choices: ["喜歡", "不喜歡"],
+                category: "N", // Intuition (思維模式)
+                image: "images/06_INFP.webp"
+            },
+            {
+                question: "你喜歡激勵和影響他人嗎？",
+                choices: ["喜歡", "不喜歡"],
+                category: "E", // Extraversion (產生能量的方式)
+                image: "images/07_ENFJ.webp"
+            },
+            {
+                question: "你認為自己是一個充滿熱情和創意的人嗎？",
+                choices: ["是", "否"],
+                category: "N", // Intuition (思維模式)
+                image: "images/08_ENFP.webp"
+            },
+            {
+                question: "你認為自己是一個注重細節並且有條理的人嗎？",
+                choices: ["是", "否"],
+                category: "S", // Sensing (思維模式)
+                image: "images/09_ISTJ.webp"
+            },
+            {
+                question: "你喜歡幫助他人並提供支持嗎？",
+                choices: ["喜歡", "不喜歡"],
+                category: "F", // Feeling (做決策的依據)
+                image: "images/10_ISFJ.webp"
+            },
+            {
+                question: "你喜歡負責並管理他人嗎？",
+                choices: ["喜歡", "不喜歡"],
+                category: "J", // Judging (反應態度)
+                image: "images/11_ESTJ.webp"
+            },
+            {
+                question: "你喜歡與他人互動並建立社交關係嗎？",
+                choices: ["喜歡", "不喜歡"],
+                category: "E", // Extraversion (產生能量的方式)
+                image: "images/12_ESFJ.webp"
+            },
+            {
+                question: "你喜歡實踐和動手操作嗎？",
+                choices: ["喜歡", "不喜歡"],
+                category: "S", // Sensing (思維模式)
+                image: "images/13_ISTP.webp"
+            },
+            {
+                question: "你認為自己是一個熱愛藝術和自由的人嗎？",
+                choices: ["是", "否"],
+                category: "N", // Intuition (思維模式)
+                image: "images/14_ISFP.webp"
+            },
+            {
+                question: "你喜歡冒險並接受挑戰嗎？",
+                choices: ["喜歡", "不喜歡"],
+                category: "P", // Perceiving (反應態度)
+                image: "images/15_ESTP.webp"
+            },
+            {
+                question: "你認為自己是一個外向並充滿熱情的人嗎？",
+                choices: ["是", "否"],
+                category: "E", // Extraversion (產生能量的方式)
+                image: "images/16_ESFP.webp"
+            }
         ];
 
         let currentQuestion = 0;
-        let scores = { L: 0, M: 0, F: 0 };
+        let scores = { E: 0, I: 0, S: 0, N: 0, T: 0, F: 0, J: 0, P: 0 };
 
         function renderQuestion() {
             if (currentQuestion >= questions.length) {
@@ -91,22 +168,34 @@
             if (choiceIndex === 0) {
                 scores[question.category]++;
             } else {
-                scores[question.category]--;
+                const oppositeCategory = getOppositeCategory(question.category);
+                scores[oppositeCategory]++;
             }
 
             currentQuestion++;
             renderQuestion();
         }
 
+        function getOppositeCategory(category) {
+            switch (category) {
+                case 'E': return 'I';
+                case 'I': return 'E';
+                case 'S': return 'N';
+                case 'N': return 'S';
+                case 'T': return 'F';
+                case 'F': return 'T';
+                case 'J': return 'P';
+                case 'P': return 'J';
+            }
+        }
+
         function showResult() {
-            let personality = "你是一個";
-
-            if (scores.L > 0) personality += "長期躺著";
-            if (scores.M > 0) personality += "，偶爾翻身";
-            if (scores.F > 0) personality += "，喜歡高脂肪食物";
-            if (scores.L <= 0 && scores.M <= 0 && scores.F <= 0) personality += "一般人";
-
-            document.getElementById('test').innerHTML = `<h2>${personality}。</h2>`;
+            const mbti = (scores.E > scores.I ? 'E' : 'I') +
+                         (scores.S > scores.N ? 'S' : 'N') +
+                         (scores.T > scores.F ? 'T' : 'F') +
+                         (scores.J > scores.P ? 'J' : 'P');
+            
+            document.getElementById('test').innerHTML = `<h2>你的 MBTI 類型是：${mbti}</h2>`;
             document.getElementById('next').style.display = 'none';
         }
 
